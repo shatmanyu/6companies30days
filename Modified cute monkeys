@@ -1,0 +1,15 @@
+def encode(st):
+    ans = ''
+    n = len(st)
+    i = 0 
+    while i < n:
+        strt = st[i] 
+        cnt = 1 
+        j = i + 1 
+        while j < n and st[j] == strt:
+            cnt += 1 
+            j += 1 
+        ans += strt
+        ans += str(cnt) 
+        i = j 
+    return ans
