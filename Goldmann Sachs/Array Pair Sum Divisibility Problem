@@ -1,0 +1,21 @@
+def canPair(self,arr,k):
+	    n = len(nums) 
+	    if n%2!=0:
+	        return False 
+	    d = {}
+	    for i in arr:
+	        rem = i%k
+	        if rem not in d:
+	            d[rem] = 1 
+	        else:
+	            d[rem] += 1 
+	    ans = True 
+	    for i in d:
+	        if i!=(k-i) and k - i in d and d[i] == d[k-i]:
+	            pass 
+	        elif i == 0 or 2*i == k and d[i]%2 == 0:
+	            pass 
+	        else:
+	            ans = False 
+	            
+	    return ans
