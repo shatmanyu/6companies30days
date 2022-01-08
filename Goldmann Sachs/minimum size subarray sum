@@ -1,0 +1,16 @@
+       
+        n = len(arr)
+        sm = 0;ans = float('inf')
+        i = 0;j = 0 
+        while j < n:
+            sm += arr[j] 
+            if sm >= t:
+                ans = min(ans,j - i + 1)
+                while i < n and sm - arr[i] >= t:
+                    sm -= arr[i] 
+                    i += 1 
+                    ans = min(ans,j-i+1)
+            j += 1
+        if ans == float('inf'):
+            return 0
+        return ans 
