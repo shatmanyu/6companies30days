@@ -1,0 +1,41 @@
+def findTwoElement(self,arr,n): 
+        '''
+          1. map 
+          2. Maths,Equations 
+          3. Swap sort 
+          4. Xor 
+          
+          
+          21351
+          12345
+          01234
+        
+        '''
+        arr = list(arr)
+        n = len(arr)
+        '''
+            m,r = miss,rep
+            m - r = smc - sm 
+            m2 - r2 = smqc - smq 
+            (m-r)(m+r) = smqc - smq 
+            m+r = (smqc - smq)//(m-r)
+            m+r = mrp
+            m-r = mrm
+            m = (mrp+mrm)//2 
+            r = mrp - m 
+
+        '''
+        sm = 0 
+        smq = 0
+        for i in arr:
+            sm += i 
+            smq += i*i
+        smc = (n*(n+1))//2
+        smqc = (n*(n+1)*(2*n+1))//6 
+
+        mrm = smc - sm
+        mrq = smqc - smq
+        mrp = mrq//mrm 
+        m = (mrm+mrp)//2 
+        r = mrp - m 
+        return [r,m]
