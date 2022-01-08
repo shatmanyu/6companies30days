@@ -1,0 +1,18 @@
+def squaresInChessBoard(self,n):
+        
+        '''
+        
+         n = 4          n = 2 
+         1 2 3 4        1 2 
+         1 2 3 4        1 2 
+         1 2 3 4         
+         1 2 3 4 
+         
+         16 + 9 + 4 + 1   4 + 1
+         
+         ans = n^2 + n-1^2 + ... + 1^2
+        
+        '''
+        
+        ans = (n*(n+1)*(2*n+1))//6 
+        return ans
