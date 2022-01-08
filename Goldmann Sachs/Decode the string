@@ -1,0 +1,52 @@
+def decodedString(self,s):
+        
+        ''' 
+        
+        
+          st = 3[a3[b]1[ab]] 
+          nst = [];sst = []
+          abbbababbbababbbab
+          
+          s = "abbbababbbababbbab"
+          nst = [];sst = [] 
+          
+          ans = s 
+        
+        ''' 
+        
+        nst = [];sst = []
+        i = 0;n = len(s)
+        s1 = ""
+        while i < n:
+            if '1' <= s[i] <= '9':
+                num = s[i]
+                j1 = i + 1 
+                while j1 < n and s[j1]!="[":
+                    num += s[j1]
+                    j1 += 1 
+                nst.append(int(num)) 
+                i = j1 
+            elif 'a' <= s[i] <= 'z':
+                sst.append(s[i])
+                i += 1 
+            elif s[i] == "[":
+                sst.append(s[i])
+                i += 1 
+            else:
+                s1 = ""
+                s2 = ""
+                while sst and sst[-1]!='[':
+                    s1 += sst.pop()
+                if sst:
+                    sst.pop()
+                if nst:
+                    s2 += s1[::-1]*nst.pop() 
+                for j in range(len(s2)):
+                    sst.append(s2[j])
+                i += 1 
+        
+        ans = "".join(sst)
+        if nst:
+            ans1 = ans*nst.pop()
+            return ans1
+        return ans
