@@ -1,0 +1,36 @@
+def gcdOfStrings(self,st1,st2):
+        
+        '''
+        
+         st1 = "abcabc"
+         st2 = 'abc'
+         
+         
+         
+         st1 = 'ababab'
+         st2 = 'abab'
+         a,ab,aba,abab
+         
+         
+        
+        '''
+        def check(s1,s2,l):
+            s = s1[:l]
+            for i in range(l2):
+                if s2[i]!=s[i%l]:
+                    return False 
+            for i in range(l1):
+                if s1[i]!=s[i%l]:
+                    return False 
+            return True 
+            
+        l1 = len(st1)
+        l2 = len(st2) 
+        
+        m = min(l1,l2) 
+        i = m
+        while i > 0:
+            if l1%i == 0 and l2%i == 0 and check(st1,st2,i):
+                return st1[:i]
+            i -= 1 
+        return ''
